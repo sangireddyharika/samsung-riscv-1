@@ -135,7 +135,7 @@ rd	[11:7]	00010 (sp = x2)	Destination register
 
 Opcode	[6:0]	0010011	Opcode for addi
 
-1. Immediate (bits [31:20])
+Immediate (bits [31:20])
 
 Binary: 1111 1111 0000
 
@@ -148,22 +148,26 @@ Invert bits: 0000 0000 1111
 Add 1: 0000 0001 0000 = 16
 
 Since the most significant bit is 1, the value is negative: -16
-2. Source Register (rs1, bits [19:15])
+
+Source Register (rs1, bits [19:15])
 
 Binary: 00010
 
 This maps to sp (x2).
-3. Function Code (funct3, bits [14:12])
+
+Function Code (funct3, bits [14:12])
 
 Binary: 000
 
 Specifies the operation as addi (Add Immediate).
-4. Destination Register (rd, bits [11:7])
+
+Destination Register (rd, bits [11:7])
 
 Binary: 00010
 
 This maps to sp (x2).
-5. Opcode (bits [6:0])
+
+Opcode (bits [6:0])
 
 Binary: 0010011
 
