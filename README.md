@@ -37,18 +37,39 @@ Grateful to:
 Samsung Semiconductor India Research (SSIR)
 VLSI System Design (VSD)
 The entire RISC-V Mission 2025 team for this transformative experience.
-
-<!--
-**samsung-riscv/samsung-riscv** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Task 3
+Instruction 1:
+Machine code lui a2,0x376
+![Screenshot_from_2025-01-15_20-49-11 1](https://github.com/user-attachments/assets/b4c49ab3-6f45-417e-a2c5-c5cd8713adc8)
+Instruction: lui a2, 0x376
+Address: 100b0
+Machine Code: 00376637
+Operation
+Mnemonic: lui
+Purpose: Load the immediate value 0x376 into the upper 20 bits of register a2 (x12). The lower 12 bits are set to 0.
+Result in a2:
+a2 = 0x37600000
+Instruction Format (U-type for lui):
+U-type format is:
+[imm[31:12]] [rd] [opcode]
+Immediate (imm[31:12]): A 20-bit value that is left-shifted by 12 to form the final 32-bit immediate value.
+Destination Register (rd): Specifies where the result is stored.
+Opcode: Specifies the operation (lui).
+Immediate (imm[31:12]):
+Immediate value 0x376 is converted to binary:
+0x376 → 0011 0111 0110
+This is placed in the top 20 bits.
+Destination Register (rd):
+Register a2 corresponds to x12 in RISC-V architecture.
+x12 in binary:01100
+Opcode:
+Opcode for lui is 0110111 (7 bits).
+Binary Representation
+Combining the fields into binary:
+[imm[31:12]]      [rd]    [opcode]  
+0011 0111 0110    01100   0110111
+Complete binary instruction:
+0011 0111 0110 01100 0110111
+Hexadecimal Representation
+Convert the binary representation into hexadecimal:
+0011 0111 0110 01100 0110111 → 0x00376637
