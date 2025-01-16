@@ -173,4 +173,28 @@ Binary: 0010011
 
 This is the opcode for addi.
 
+Instruction 3
+
+![Screenshot_from_2025-01-15_20-49-33 1](https://github.com/user-attachments/assets/dfec7ac0-d6cf-4d61-ad1a-41285d6af698)
+
+Explanation
+Opcode (0010011):
+
+Identifies this as an addi (add immediate) instruction.
+Immediate (-256):
+
+Represented as a 12-bit signed number: 1111 0000 0000.
+The two's complement interpretation of 1111 0000 0000 gives -256.
+rs1 (00101):
+
+Specifies the source register a2 (x5).
+funct3 (000):
+
+Function code for addition.
+rd (00101):
+
+Specifies the destination register a2 (x5).
+
+This instruction subtracts 256 from the value in register a2 (x5) and stores the result back into a2. If a2 initially contained 0x37600000, after this instruction, it will contain 0x375F0000.
+
 
