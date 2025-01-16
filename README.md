@@ -197,4 +197,33 @@ Specifies the destination register a2 (x5).
 
 This instruction subtracts 256 from the value in register a2 (x5) and stores the result back into a2. If a2 initially contained 0x37600000, after this instruction, it will contain 0x375F0000.
 
+Instruction 4 
+
+![Screenshot_from_2025-01-15_20-49-42 1](https://github.com/user-attachments/assets/59ec004a-7689-46a5-aad9-3312044a48d2)
+The li (load immediate) pseudo-instruction is represented as a combination of actual instructions. In this case, li a1, 10 is implemented directly using the addi instruction with the source register x0 (zero register). Here's the breakdown:
+
+Explanation
+Opcode (0010011):
+
+Identifies this as an addi (add immediate) instruction.
+Immediate (10):
+
+Represented as a 12-bit unsigned value: 0000 0000 1010.
+rs1 (00000):
+
+Source register is x0 (zero register), which always holds the value 0.
+funct3 (000):
+
+Specifies addition operation for addi.
+rd (00101):
+
+Specifies the destination register a1 (x11).
+
+Operation
+The addi instruction performs the following:
+a1 = x0 + 10
+Since x0 always contains 0, the result is simply 10. The value 10 is then stored in a1.
+
+The instruction li a1, 10 is encoded as addi a1, x0, 10, loading the immediate value 10 into the a1 register.
+
 
