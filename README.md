@@ -105,7 +105,7 @@ Convert the binary representation into hexadecimal:
 
 0011 0111 0110 01100 0110111 → 0x00376637
 
-Instruction 2
+Instruction 2 :
 
 ![Screenshot_from_2025-01-15_20-49-24 1](https://github.com/user-attachments/assets/24607619-db3d-41e3-b0a7-5f60ac95f21a)
 
@@ -173,7 +173,7 @@ Binary: 0010011
 
 This is the opcode for addi.
 
-Instruction 3
+Instruction 3 :
 
 ![Screenshot_from_2025-01-15_20-49-33 1](https://github.com/user-attachments/assets/dfec7ac0-d6cf-4d61-ad1a-41285d6af698)
 
@@ -197,7 +197,7 @@ Specifies the destination register a2 (x5).
 
 This instruction subtracts 256 from the value in register a2 (x5) and stores the result back into a2. If a2 initially contained 0x37600000, after this instruction, it will contain 0x375F0000.
 
-Instruction 4 
+Instruction 4 :
 
 ![Screenshot_from_2025-01-15_20-49-42 1](https://github.com/user-attachments/assets/59ec004a-7689-46a5-aad9-3312044a48d2)
 The li (load immediate) pseudo-instruction is represented as a combination of actual instructions. In this case, li a1, 10 is implemented directly using the addi instruction with the source register x0 (zero register). Here's the breakdown:
@@ -226,7 +226,7 @@ Since x0 always contains 0, the result is simply 10. The value 10 is then stored
 
 The instruction li a1, 10 is encoded as addi a1, x0, 10, loading the immediate value 10 into the a1 register.
 
-Instruction 5
+Instruction 5 :
 
 ![Screenshot_from_2025-01-15_20-49-48 1](https://github.com/user-attachments/assets/23ad2f31-5e13-403d-83ef-0a61d82738e0)
 
@@ -257,7 +257,7 @@ a0 = 0x210001D0
 
 The instruction addi a0, a0, 464 adds the immediate value 464 (0x1D0) to the current value of a0, and stores the result back into a0. After this instruction, a0 contains the value 0x210001D0.
 
-Instruction 6 
+Instruction 6 :
 
 ![Screenshot_from_2025-01-15_20-49-56 1](https://github.com/user-attachments/assets/fb0212fe-3a27-4c3a-80ba-784e407500b3)
 
@@ -290,7 +290,7 @@ The value in the ra register is stored in the calculated memory address.
 
 The instruction sd ra, 8(sp) stores the value in the ra register (x1) into memory at an offset of 8 bytes from the address in the sp register (x2). This is typically used to save the return address on the stack before making a function call.
 
-Instruction 7
+Instruction 7 :
 
 ![Screenshot_from_2025-01-15_20-50-03 1](https://github.com/user-attachments/assets/2d1c8af6-bc99-42f1-bd7a-5585d01822f4)
 
@@ -319,7 +319,7 @@ Stores the return address (PC + 4, the address of the next instruction) into the
 
 The instruction jal ra, 10484 <printf> makes an unconditional jump to the address 10484 (relative to the current PC) and stores the return address in the ra register. This is typically used for function calls, and in this case, it jumps to the printf function located at address 10484.
 
-Instruction 8
+Instruction 8 :
 
 ![Screenshot_from_2025-01-15_20-50-12 1](https://github.com/user-attachments/assets/6db42a59-d577-44e3-abdc-8d6eb83cf62a)
 
@@ -351,7 +351,7 @@ The 64-bit value stored at this memory location is loaded into the ra register.
 
 The instruction ld ra, 8(sp) loads the 64-bit value from the memory address calculated as sp + 8 into the ra (x1) register. This is commonly used to restore the return address from the stack after a function call.
 
-Instruction 9 
+Instruction 9 :
 
 ![Screenshot_from_2025-01-15_20-50-19 1](https://github.com/user-attachments/assets/14f3cc91-33a2-41e7-9bd3-e559fdf855fb)
 
@@ -386,7 +386,7 @@ a0 = 0
 
 The instruction li a0, 0 (translated to addi a0, x0, 0) sets the value of the a0 register to 0. This is commonly used to initialize or reset a register to zero.
 
-Instruction 10
+Instruction 10 :
 
 ![Screenshot_from_2025-01-15_20-50-28 1](https://github.com/user-attachments/assets/bf0743b7-3f42-425d-871b-eba29f966692)
 
@@ -418,7 +418,7 @@ It increments the stack pointer by 16. This is commonly used to deallocate space
 
 The instruction addi sp, sp, 16 increments the stack pointer (sp) by 16, effectively undoing a previous stack allocation. This is often used at the end of a function to restore the stack pointer to its original value.
 
-instruction 11
+instruction 11 :
 
 ![Screenshot_from_2025-01-15_20-50-33 1](https://github.com/user-attachments/assets/b3c15573-a443-432e-b14d-e1429ef2a0ae)
 
@@ -453,7 +453,7 @@ Does not write a link address back to any register, as rd is set to x0.
 
 The instruction ret (translated to jalr x0, 0(ra)) causes the program to return to the address stored in the ra register. This is typically used at the end of a function to return control to the caller.
 
-instruction 12
+instruction 12 :
 
 ![Screenshot_from_2025-01-15_20-49-17 1](https://github.com/user-attachments/assets/3611d093-3103-4b6b-ac55-816d7a93bf11)
 
@@ -468,7 +468,7 @@ The result in a0 will be:
 
 This instruction is commonly used to set up a base value in a register for further operations, like addressing or arithmetic.
 
-Instruction 13
+Instruction 13 :
 
 Instruction: auipc a5, 0xffff0
 auipc: "Add Upper Immediate to PC". This instruction computes an address relative to the current program counter (PC) by adding the immediate value (shifted left by 12 bits) to the PC and stores the result in the specified register.
@@ -492,7 +492,7 @@ Adding the values:
 a5=0x100e0+0xffff000=0x1000000e0
 Since the high bits might be truncated depending on the RISC-V implementation (e.g., 32-bit vs. 64-bit architecture), ensure this is interpreted correctly in the context of your program.
 
-Instruction 14
+Instruction 14 :
 
 Instruction: beqz a5, 100f8
 beqz: This is shorthand for "branch if equal to zero", which checks if the value in the register is zero and branches to a specified address if true.
@@ -509,7 +509,7 @@ If a5 != 0: The program continues with the next instruction at 100ec.
 
 If this is part of a function, it might be checking whether a5 was successfully computed or initialized earlier (e.g., from a prior auipc or lui operation). If not, it jumps to an alternative path at 100f8, such as an error handler or cleanup code.
 
-Instruction 15 
+Instruction 15  :
 
 Instruction: j 1022c
 j: This is a jump instruction, an unconditional branch that modifies the program counter (PC) to the specified address.
